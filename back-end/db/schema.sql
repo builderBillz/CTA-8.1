@@ -1,11 +1,17 @@
-DROP DATABASE IF EXISTS cta_dev;
-CREATE DATABASE cta_dev;
+DROP DATABASE IF EXISTS laptop_store;
+CREATE DATABASE laptop_store;
 
-\c cta_dev;
+\c laptop_store;
 
-DROP TABLE IF EXISTS test;
+DROP TABLE IF EXISTS laptops;
 
-CREATE TABLE test (
+CREATE TABLE laptops (
     id SERIAL PRIMARY KEY, 
-    name TEXT
+    name TEXT NOT NULL,
+    description Text,
+    price INT,
+    rating SMALLINT,
+    CHECK (rating >=0 AND rating <=5),
+    featured BOOLEAN,
+    image TEXT
 );
